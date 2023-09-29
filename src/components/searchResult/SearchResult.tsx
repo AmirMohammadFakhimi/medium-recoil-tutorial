@@ -1,12 +1,7 @@
 import React from "react";
 import './SearchResult.css'
-import {resultsType} from "./results";
-import {atom, selector, useRecoilState, useRecoilValue} from "recoil";
-
-export const searchResultsState = atom({
-  key: 'searchResultsState',
-  default: [] as resultsType
-})
+import {selector, useRecoilState, useRecoilValue} from "recoil";
+import {searchResultsState} from "../searchInput/SearchInput";
 
 const getSearchResultsState = selector({
   key: 'getSearchResultsState',
@@ -25,9 +20,9 @@ const getNumberOfResultsState = selector({
 })
 
 export function SearchResult() {
-  const searchResults: resultsType = useRecoilValue(getSearchResultsState)
-  // const searchResults: resultsType = useRecoilValue(searchResultsState)
+  const searchResults = useRecoilValue(getSearchResultsState)
   // const [searchResults, setSearchResults] = useRecoilState(searchResultsState)
+  // const searchResults = useRecoilValue(searchResultsState)
 
   const numberOfResults = useRecoilValue(getNumberOfResultsState)
   // const numberOfResults = useRecoilValue(searchResultsState).length

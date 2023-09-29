@@ -1,8 +1,12 @@
 import React, {useState} from "react";
 import './SearchInput.css'
 import {results, resultsType} from "../searchResult/results";
-import {useRecoilState, useSetRecoilState} from "recoil";
-import {searchResultsState} from "../searchResult/SearchResult";
+import {atom, useRecoilState, useSetRecoilState} from "recoil";
+
+export const searchResultsState = atom({
+  key: 'searchResultsState',
+  default: [] as resultsType
+})
 
 export function SearchInput() {
   const [originInput, setOriginInput] = useState<string>('')
@@ -10,6 +14,7 @@ export function SearchInput() {
   const [dayInput, setDayInput] = useState<number>(1)
 
   const setSearchResults = useSetRecoilState(searchResultsState)
+  // const [searchResults, setSearchResults] = useRecoilState(searchResultsState)
 
   function search(originInput: string, destinationInput: string, dayInput: number): resultsType {
     return results.filter(result => result.origin.toLowerCase() === originInput.toLowerCase() &&
