@@ -1,0 +1,25 @@
+#search-result-div {
+    margin: 60px auto;
+    width: 40%;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    padding: 8px 0;
+    width: 30%;
+}
+
+tbody > tr:nth-child(odd) {
+    background-color: #dddddd;
+}
+
+tr:hover {
+    background-color: rgba(140, 156, 189, 0.82) !important;
+    cursor: pointer;
+}
